@@ -58,7 +58,7 @@ export default function Home() {
           transition={{ delay: 0.3 }}
         >
           <div className="container mx-auto px-4 text-center">
-            <p>© {new Date().getFullYear()} Talitha Farm. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Talitha Pharma. All rights reserved.</p>
           </div>
         </motion.footer>
       </motion.div>
