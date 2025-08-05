@@ -6,11 +6,11 @@ import Head from "next/head";
 export default function Home() {
   const pageVariants = {
     initial: { opacity: 0 },
-    animate: { 
+    animate: {
       opacity: 1,
       transition: {
         duration: 0.5,
-        ease: "easeInOut"
+        ease: [0.42, 0, 0.58, 1] as [number, number, number, number] // ✅ Fix here
       }
     },
     exit: { opacity: 0 }
@@ -31,20 +31,24 @@ export default function Home() {
         variants={pageVariants}
         className="min-h-screen flex flex-col"
       >
+        {/* Top header with contact info and time */}
         <TopHeader />
+
+        {/* Main navigation bar */}
         <MainHeader />
-        
-        {/* Hero Section Placeholder - Add your content here */}
-        <motion.main 
+
+        {/* Hero Section Placeholder */}
+        <motion.main
           className="flex-grow bg-gradient-to-b from-white to-green-50"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          {/* Your main content will go here */}
+          {/* Your main content goes here */}
         </motion.main>
 
-        <motion.footer 
+        {/* Footer */}
+        <motion.footer
           className="bg-[#B2292E] text-white py-6"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
