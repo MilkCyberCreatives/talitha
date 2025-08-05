@@ -2,6 +2,8 @@ import TopHeader from "@/components/TopHeader";
 import MainHeader from "@/components/MainHeader";
 import HeroBanner from "@/components/HeroBanner";
 import AboutUsSection from "@/components/AboutUsSection";
+import FocusAreasSection from "@/components/FocusAreasSection";
+
 import { motion } from "framer-motion";
 import Head from "next/head";
 
@@ -48,6 +50,7 @@ export default function Home() {
         >
           <HeroBanner />
           <AboutUsSection />
+          <FocusAreasSection />
         </motion.main>
 
         {/* Footer */}
