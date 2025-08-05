@@ -1,5 +1,5 @@
 import { FiMail, FiPhone } from "react-icons/fi";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useState, useEffect } from "react";
 
 export default function TopHeader() {
@@ -16,19 +16,19 @@ export default function TopHeader() {
   const timeString = currentTime?.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   const dateString = currentTime?.toLocaleDateString([], { weekday: 'long', month: 'short', day: 'numeric' });
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0, y: -20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: 0.5,
-        ease: "easeOut" as const // ✅ FIXED for Framer Motion compatibility
+        ease: [0.25, 0.1, 0.25, 1] // ← Type-safe cubic-bezier easing
       }
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hover: {
       scale: 1.05,
       transition: { duration: 0.2 }

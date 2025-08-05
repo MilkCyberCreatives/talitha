@@ -52,9 +52,7 @@ export default function MainHeader() {
     {
       title: "PHARMA ONLINE",
       path: "/pharma-online",
-      dropdown: [
-        { href: "/pharma-online/products", text: "Products" },
-      ],
+      dropdown: [{ href: "/pharma-online/products", text: "Products" }],
     },
     { title: "BLOG", path: "/blog" },
     { title: "CONTACT", path: "/contact" },
@@ -62,7 +60,8 @@ export default function MainHeader() {
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-[#B2292E] text-white shadow-lg">
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+        {/* Logo */}
         <Link href="/" onClick={closeAllMenus} className="flex items-center gap-3">
           <Image
             src="/talitha-white-logo.svg"
@@ -150,7 +149,7 @@ export default function MainHeader() {
             transition={{ duration: 0.3 }}
             className="lg:hidden bg-[#B2292E] text-white overflow-hidden"
           >
-            <div className="px-4 py-3 space-y-2">
+            <div className="max-w-7xl mx-auto px-4 py-3 space-y-2">
               {menuItems.map((item) => (
                 <div key={item.title} className="border-b border-white/10 last:border-0">
                   {item.dropdown ? (

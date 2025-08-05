@@ -1,5 +1,7 @@
 import TopHeader from "@/components/TopHeader";
 import MainHeader from "@/components/MainHeader";
+import HeroBanner from "@/components/HeroBanner";
+import AboutUsSection from "@/components/AboutUsSection";
 import { motion } from "framer-motion";
 import Head from "next/head";
 
@@ -10,7 +12,7 @@ export default function Home() {
       opacity: 1,
       transition: {
         duration: 0.5,
-        ease: [0.42, 0, 0.58, 1] as [number, number, number, number] // ✅ Fix here
+        ease: [0.42, 0, 0.58, 1] as [number, number, number, number]
       }
     },
     exit: { opacity: 0 }
@@ -37,14 +39,15 @@ export default function Home() {
         {/* Main navigation bar */}
         <MainHeader />
 
-        {/* Hero Section Placeholder */}
+        {/* Hero Banner Section */}
         <motion.main
           className="flex-grow bg-gradient-to-b from-white to-green-50"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          {/* Your main content goes here */}
+          <HeroBanner />
+          <AboutUsSection />
         </motion.main>
 
         {/* Footer */}
