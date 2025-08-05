@@ -3,6 +3,11 @@ import MainHeader from "@/components/MainHeader";
 import HeroBanner from "@/components/HeroBanner";
 import AboutUsSection from "@/components/AboutUsSection";
 import FocusAreasSection from "@/components/FocusAreasSection";
+import CallToAction from "@/components/CallToAction";
+import CoreValues from "@/components/CoreValues";
+import BusinessUnits from "@/components/BusinessUnits";
+import BlogPreviewSection from '@/components/BlogPreviewSection';
+import Footer from "@/components/Footer"; // ✅ You already imported this
 
 import { motion } from "framer-motion";
 import Head from "next/head";
@@ -51,19 +56,16 @@ export default function Home() {
           <HeroBanner />
           <AboutUsSection />
           <FocusAreasSection />
+          <CallToAction />
+          <CoreValues />
+          <BusinessUnits />
         </motion.main>
 
-        {/* Footer */}
-        <motion.footer
-          className="bg-[#B2292E] text-white py-6"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          <div className="container mx-auto px-4 text-center">
-            <p>© {new Date().getFullYear()} Talitha Pharma. All rights reserved.</p>
-          </div>
-        </motion.footer>
+        {/* Blog Preview Section */}
+        <BlogPreviewSection />
+
+        {/* ✅ Replaced old footer with your new styled footer */}
+        <Footer />
       </motion.div>
     </>
   );

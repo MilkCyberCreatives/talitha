@@ -23,18 +23,18 @@ export default function HeroBanner() {
         <div className="absolute inset-0 bg-black/30 backdrop-blur-[1px]" />
       </div>
 
-      {/* Content - Same layout with improved visibility */}
+      {/* Content */}
       <motion.div
         className="relative bg-black/50 border-2 border-[#80BC00] text-white p-8 sm:p-10 max-w-4xl rounded-md shadow-2xl text-center space-y-6"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ 
-          duration: 0.8, 
+        transition={{
+          duration: 0.8,
           ease: [0.16, 1, 0.3, 1],
           delay: 0.2
         }}
       >
-        <motion.h1 
+        <motion.h1
           className="text-4xl md:text-5xl font-bold tracking-tight drop-shadow-md"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -42,17 +42,18 @@ export default function HeroBanner() {
         >
           Talitha Investment Holdings
         </motion.h1>
-        
-        <motion.p 
+
+        <motion.p
           className="text-[#80BC00] italic text-lg md:text-xl font-medium drop-shadow-md"
+          style={{ fontFamily: "Century Gothic, sans-serif" }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
         >
           Shaping Prosperity Through Innovation
         </motion.p>
-        
-        <motion.p 
+
+        <motion.p
           className="text-sm md:text-base leading-relaxed max-w-3xl mx-auto text-white/90"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -63,7 +64,7 @@ export default function HeroBanner() {
           livestock value chain sectors, we are committed to creating lasting socioeconomic growth
           and empowering rural communities for a sustainable future.
         </motion.p>
-        
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -72,7 +73,7 @@ export default function HeroBanner() {
           <Link href="/investment/about" passHref legacyBehavior>
             <motion.a
               className="inline-block px-6 py-2 border border-[#80BC00] text-[#80BC00] rounded-md text-sm md:text-base font-semibold hover:bg-[#80BC00] hover:text-white transition-all duration-300 cursor-pointer shadow-lg"
-              whileHover={{ 
+              whileHover={{
                 scale: 1.05,
                 backgroundColor: "#80BC00",
                 color: "#fff"
