@@ -23,69 +23,75 @@ export default function TopHeader() {
       y: 0,
       transition: {
         duration: 0.5,
-        ease: [0.25, 0.1, 0.25, 1] // ← Type-safe cubic-bezier easing
+        ease: [0.25, 0.1, 0.25, 1]
       }
     }
   };
 
   const itemVariants: Variants = {
-    hover: {
-      scale: 1.05,
-      transition: { duration: 0.2 }
-    },
-    tap: {
-      scale: 0.95
-    }
+    hover: { scale: 1.05, transition: { duration: 0.2 } },
+    tap: { scale: 0.95 }
   };
 
   return (
     <motion.div
-      className="bg-gradient-to-r from-[#B2292E] to-[#D15B5F] text-white text-sm py-3 px-6 flex justify-between items-center shadow-md"
+      className="fixed top-0 w-full h-[48px] md:h-[52px] bg-gradient-to-r from-[#B2292E] to-[#D15B5F] text-white text-sm z-[60] border-b border-white/20"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
+      role="banner"
+      aria-label="Top header with contact information"
     >
-      <div className="flex items-center gap-6">
-        <motion.div
-          className="flex items-center gap-2"
-          whileHover="hover"
-          whileTap="tap"
-          variants={itemVariants}
-        >
-          <FiMail className="text-[#80BC00] text-lg" />
-          <a href="mailto:info@talitha.co.za" className="hover:underline transition-all duration-200">info@talitha.co.za</a>
-        </motion.div>
-        <motion.div
-          className="flex items-center gap-2"
-          whileHover="hover"
-          whileTap="tap"
-          variants={itemVariants}
-        >
-          <FiPhone className="text-[#80BC00] text-lg" />
-          <a href="tel:+27123456789" className="hover:underline transition-all duration-200">+27 12 345 6789</a>
-        </motion.div>
-      </div>
-
-      {currentTime && (
-        <motion.div
-          className="hidden md:flex items-center gap-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          <div className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full">
-            <span className="text-[#80BC00] font-medium">{timeString}</span>
-            <span className="text-xs">{dateString}</span>
-          </div>
-          <motion.button
-            className="bg-[#80BC00] hover:bg-[#6EA000] text-white px-4 py-1 rounded-full text-xs font-medium transition-colors duration-200"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 flex justify-between items-center h-full">
+        {/* Contact Info */}
+        <div className="flex flex-wrap items-center gap-4 md:gap-6">
+          <motion.div
+            className="flex items-center gap-2"
+            whileHover="hover"
+            whileTap="tap"
+            variants={itemVariants}
           >
-            Contact Us
-          </motion.button>
-        </motion.div>
-      )}
+            <FiMail className="text-[#80BC00] text-lg" aria-hidden="true" />
+            <a
+              href="mailto:info@talitha.co.za"
+              className="hover:underline transition-all duration-200"
+              aria-label="Email us at info@talitha.co.za"
+            >
+              info@talitha.co.za
+            </a>
+          </motion.div>
+
+          <motion.div
+            className="flex items-center gap-2"
+            whileHover="hover"
+            whileTap="tap"
+            variants={itemVariants}
+          >
+            <FiPhone className="text-[#80BC00] text-lg" aria-hidden="true" />
+            <a
+              href="tel:+27123456789"
+              className="hover:underline transition-all duration-200"
+              aria-label="Call us at +27 12 345 6789"
+            >
+              +27 12 345 6789
+            </a>
+          </motion.div>
+        </div>
+
+        {/* Time and Date */}
+        {currentTime && (
+          <div className="hidden sm:flex items-center gap-3">
+            <div className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full">
+              <time dateTime={currentTime.toISOString()} className="text-[#80BC00] font-medium">
+                {timeString}
+              </time>
+              <time dateTime={currentTime.toISOString()} className="text-xs">
+                {dateString}
+              </time>
+            </div>
+          </div>
+        )}
+      </div>
     </motion.div>
   );
 }
