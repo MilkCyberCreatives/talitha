@@ -30,7 +30,7 @@ export default function HeroBanner() {
 
       {/* Main Content */}
       <motion.div
-        className="relative bg-black/50 backdrop-blur-sm text-white p-10 max-w-4xl rounded-lg shadow-xl text-center space-y-8 mt-20 mx-4 border-t-2 border-b-2 border-[#80BC00]"
+        className="relative bg-black/30 backdrop-blur-[2px] text-white p-10 max-w-4xl rounded-lg shadow-xl text-center space-y-8 mt-20 mx-4 border-t-2 border-b-2 border-[#80BC00]"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
