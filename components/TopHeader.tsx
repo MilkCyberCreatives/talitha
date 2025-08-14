@@ -1,21 +1,9 @@
 import { FiMail, FiPhone } from "react-icons/fi";
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { motion, Variants } from "framer-motion";
-import { useState, useEffect } from "react";
 
 export default function TopHeader() {
-  const [currentTime, setCurrentTime] = useState<Date | null>(null);
-
-  useEffect(() => {
-    setCurrentTime(new Date());
-    const timer = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const timeString = currentTime?.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-  const dateString = currentTime?.toLocaleDateString([], { weekday: 'long', month: 'short', day: 'numeric' });
-
   const containerVariants: Variants = {
     hidden: { opacity: 0, y: -20 },
     visible: {
@@ -33,9 +21,18 @@ export default function TopHeader() {
     tap: { scale: 0.95 }
   };
 
+  const socialIconVariants: Variants = {
+    hover: { 
+      scale: 1.2,
+      color: "#B2292E",
+      transition: { duration: 0.2 } 
+    },
+    tap: { scale: 0.9 }
+  };
+
   return (
     <motion.div
-      className="fixed top-0 w-full h-[48px] md:h-[52px] bg-gradient-to-r from-[#B2292E] to-[#D15B5F] text-white text-sm z-[60] border-b border-white/20"
+      className="fixed top-0 w-full h-[48px] md:h-[52px] bg-white text-gray-800 text-sm z-[60] border-b border-gray-200 shadow-sm"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -51,10 +48,10 @@ export default function TopHeader() {
             whileTap="tap"
             variants={itemVariants}
           >
-            <FiMail className="text-[#80BC00] text-lg" aria-hidden="true" />
+            <FiMail className="text-[#B2292E] text-lg" aria-hidden="true" />
             <a
               href="mailto:info@talitha.co.za"
-              className="hover:underline transition-all duration-200"
+              className="hover:underline transition-all duration-200 hover:text-[#B2292E]"
               aria-label="Email us at info@talitha.co.za"
             >
               info@talitha.co.za
@@ -67,10 +64,10 @@ export default function TopHeader() {
             whileTap="tap"
             variants={itemVariants}
           >
-            <FiPhone className="text-[#80BC00] text-lg" aria-hidden="true" />
+            <FiPhone className="text-[#B2292E] text-lg" aria-hidden="true" />
             <a
               href="tel:+27123456789"
-              className="hover:underline transition-all duration-200"
+              className="hover:underline transition-all duration-200 hover:text-[#B2292E]"
               aria-label="Call us at +27 12 345 6789"
             >
               +27 12 345 6789
@@ -78,19 +75,64 @@ export default function TopHeader() {
           </motion.div>
         </div>
 
-        {/* Time and Date */}
-        {currentTime && (
-          <div className="hidden sm:flex items-center gap-3">
-            <div className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full">
-              <time dateTime={currentTime.toISOString()} className="text-[#80BC00] font-medium">
-                {timeString}
-              </time>
-              <time dateTime={currentTime.toISOString()} className="text-xs">
-                {dateString}
-              </time>
-            </div>
-          </div>
-        )}
+        {/* Social Media Icons - Correct Order */}
+        <div className="hidden sm:flex items-center gap-4">
+          {/* Facebook */}
+          <motion.a
+            href="https://facebook.com/yourpage"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-600 hover:text-[#B2292E]"
+            variants={socialIconVariants}
+            whileHover="hover"
+            whileTap="tap"
+            aria-label="Visit our Facebook page"
+          >
+            <FaFacebookF className="text-lg" />
+          </motion.a>
+          
+          {/* Instagram */}
+          <motion.a
+            href="https://instagram.com/yourprofile"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-600 hover:text-[#B2292E]"
+            variants={socialIconVariants}
+            whileHover="hover"
+            whileTap="tap"
+            aria-label="Visit our Instagram profile"
+          >
+            <FaInstagram className="text-lg" />
+          </motion.a>
+          
+          {/* LinkedIn */}
+          <motion.a
+            href="https://linkedin.com/company/yourcompany"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-600 hover:text-[#B2292E]"
+            variants={socialIconVariants}
+            whileHover="hover"
+            whileTap="tap"
+            aria-label="Visit our LinkedIn page"
+          >
+            <FaLinkedinIn className="text-lg" />
+          </motion.a>
+          
+          {/* X (formerly Twitter) */}
+          <motion.a
+            href="https://x.com/yourhandle"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-600 hover:text-[#B2292E]"
+            variants={socialIconVariants}
+            whileHover="hover"
+            whileTap="tap"
+            aria-label="Visit our X (Twitter) profile"
+          >
+            <FaXTwitter className="text-lg" />
+          </motion.a>
+        </div>
       </div>
     </motion.div>
   );
