@@ -6,7 +6,7 @@ import FocusAreasSection from "@/components/FocusAreasSection";
 import CallToAction from "@/components/CallToAction";
 import CoreValues from "@/components/CoreValues";
 import BusinessUnits from "@/components/BusinessUnits";
-import BlogPreviewSection from '@/components/BlogPreviewSection';
+// import BlogPreviewSection from '@/components/BlogPreviewSection';
 import Footer from "@/components/Footer"; // ✅ You already imported this
 
 import { motion } from "framer-motion";
@@ -62,7 +62,7 @@ export default function Home() {
         </motion.main>
 
         {/* Blog Preview Section */}
-        <BlogPreviewSection />
+        {/* <BlogPreviewSection /> */}
 
         {/* ✅ Replaced old footer with your new styled footer */}
         <Footer />
