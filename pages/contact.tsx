@@ -4,11 +4,11 @@ import MainHeader from "@/components/MainHeader";
 import Footer from "@/components/Footer";
 
 export default function ContactPage() {
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Add form submission logic here
     console.log("Form submitted");
   };
+
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
